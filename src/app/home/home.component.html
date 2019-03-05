@@ -1,0 +1,7 @@
+<div class="nav-content">
+  <ul class="navs">
+    <li *ngFor="let nav of homeNavs">
+      <a class="navs__item" [routerLink]="['/${route-link}']">{{nav.name}}</a>
+    </li>
+  </ul>
+</div>
