@@ -1,21 +1,38 @@
-.nav-content {
+.content {
   height: 100vh;
   width: 100vw;
   display: flex;
   justify-content: center;
   align-items: center;
+  background: black;
 
   .navs {
+    background: rgba($color: #FFFFFF, $alpha: .7);
+    border-radius: 5px;
+    text-align: center;
+    padding: 10px;
 
-    border: 1px solid black;
+    &__title {
+      font-size: 4vw;
+    }
 
-    li {
-      list-style: none;
+    &-content {
+      display: flex;
+
+      li {
+        list-style: none;
+        margin: 2vw;
+      }
     }
 
     &__item {
+      font-size: 3.5vw;
       text-decoration: none;
       color: palevioletred;
+    }
+
+    &__item:hover {
+      color: rgb(226, 143, 171);
     }
   }
 }

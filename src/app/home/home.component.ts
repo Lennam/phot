@@ -1,3 +1,4 @@
+import { HomeService } from './../service/home.service';
 import { HomeNav } from './../class';
 import { Component, OnInit } from '@angular/core';
 
@@ -8,12 +9,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
   homeNavs: HomeNav[];
+  dailyPicUrl: string;
 
-  constructor() {
+  constructor(private homeService: HomeService) {
     this.homeNavs = [
-      { name: 'blog', route: 'blog' },
-      { name: 'bbbb', route: 'bbbb' },
-      { name: 'cccc', route: 'cccc' }
+      { name: 'blog', route: '/blog' },
+      { name: 'bbbb', route: '/bbbb' },
+      { name: 'cccc', route: '/cccc' }
     ];
   }
 

@@ -9,21 +9,33 @@ import { reducers, metaReducers } from './reducers';
 import { HomeComponent } from './home/home.component';
 import { BlogComponent } from './blog/blog.component';
 import { PlaygroundComponent } from './playground/playground.component';
+import { HttpClientModule } from '@angular/common/http';
+import { HomeService } from './service/home.service';
+import { LoginComponent } from './login/login.component';
+import { ManageComponent } from './manage/manage.component';
+import { CustomMaterialModule } from './modules/customMarterialModule.module';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
     BlogComponent,
-    PlaygroundComponent
+    PlaygroundComponent,
+    LoginComponent,
+    ManageComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    StoreModule.forRoot(reducers, { metaReducers })
+    HttpClientModule,
+    StoreModule.forRoot(reducers, { metaReducers }),
+    CustomMaterialModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
-  providers: [],
+  providers: [HomeService],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {}
