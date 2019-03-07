@@ -12,7 +12,7 @@ const routes: Routes = [
   { path: 'blog', component: BlogComponent },
   { path: 'playground', component: PlaygroundComponent },
   { path: 'login', component: LoginComponent },
-  { path: 'manage', component: ManageComponent }
+  { path: 'admin', loadChildren: './admin/admin.module.ts#AdminModule' }
 ];
 
 @NgModule({
