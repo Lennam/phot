@@ -1,20 +1,23 @@
+import { ManageHomeComponent } from './manage-home/manage-home.component';
 import { ManageArticleComponent } from './manage-article/manage-article.component';
-import { HomeComponent } from './home/home.component';
 import { NgModule, Component } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import { AdminComponent } from './admin.component';
 
 const adminRoutes: Routes = [
   {
     path: '',
-    component: HomeComponent,
+    component: AdminComponent,
     canActivate: [],
     children: [
       {
         path: '',
         canActivateChild: [],
         children: [
+          { path: 'home', component: ManageHomeComponent },
           { path: 'article', component: ManageArticleComponent },
-          { path: '', component: HomeComponent }
+          { path: 'article/:id', component: ManageArticleComponent },
+          { path: '', pathMatch: 'full', redirectTo: 'home' }
         ]
       }
     ]

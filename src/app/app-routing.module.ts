@@ -5,6 +5,7 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { LoginComponent } from './login/login.component';
 import { ManageComponent } from './manage/manage.component';
+import { AdminModule } from './admin/admin.module';
 
 const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
@@ -12,7 +13,7 @@ const routes: Routes = [
   { path: 'blog', component: BlogComponent },
   { path: 'playground', component: PlaygroundComponent },
   { path: 'login', component: LoginComponent },
-  { path: 'admin', loadChildren: './admin/admin.module.ts#AdminModule' }
+  { path: 'admin', loadChildren: './admin/admin.module#AdminModule' }
 ];
 
 @NgModule({

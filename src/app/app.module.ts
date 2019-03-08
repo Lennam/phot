@@ -1,3 +1,4 @@
+import { AdminModule } from './admin/admin.module';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
@@ -26,14 +27,15 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     ManageComponent
   ],
   imports: [
+    // AdminModule,
     BrowserModule,
-    AppRoutingModule,
     BrowserAnimationsModule,
     HttpClientModule,
     StoreModule.forRoot(reducers, { metaReducers }),
     CustomMaterialModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    AppRoutingModule
   ],
   providers: [HomeService],
   bootstrap: [AppComponent]
