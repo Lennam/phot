@@ -1,3 +1,4 @@
+import { MessageService } from './service/message.service';
 import { AdminModule } from './admin/admin.module';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
@@ -37,7 +38,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     ReactiveFormsModule,
     AppRoutingModule
   ],
-  providers: [HomeService],
+  providers: [HomeService, MessageService],
   bootstrap: [AppComponent]
 })
 export class AppModule {}
