@@ -13,9 +13,9 @@ export class HomeComponent implements OnInit {
 
   constructor(private homeService: HomeService) {
     this.homeNavs = [
-      { name: 'blog', route: '/blog' },
-      { name: 'bbbb', route: '/bbbb' },
-      { name: 'cccc', route: '/cccc' }
+      { name: 'Blog', route: '/blog' },
+      { name: 'Github', route: '/bbbb' },
+      { name: 'Playground', route: '/cccc' }
     ];
   }
 

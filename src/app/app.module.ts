@@ -17,6 +17,10 @@ import { LoginComponent } from './login/login.component';
 import { ManageComponent } from './manage/manage.component';
 import { CustomMaterialModule } from './modules/customMarterialModule.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { DigestComponent } from './home/digest/digest.component';
+import { CategoryComponent } from './home/category/category.component';
+import { GraphQLModule } from './graphql.module';
+import { UserService } from './service/user.service';
 
 @NgModule({
   declarations: [
@@ -25,7 +29,9 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     BlogComponent,
     PlaygroundComponent,
     LoginComponent,
-    ManageComponent
+    ManageComponent,
+    DigestComponent,
+    CategoryComponent
   ],
   imports: [
     // AdminModule,
@@ -36,9 +42,10 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     CustomMaterialModule,
     FormsModule,
     ReactiveFormsModule,
-    AppRoutingModule
+    AppRoutingModule,
+    GraphQLModule
   ],
-  providers: [HomeService, MessageService],
+  providers: [HomeService, MessageService, UserService],
   bootstrap: [AppComponent]
 })
 export class AppModule {}

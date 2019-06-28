@@ -13,7 +13,9 @@
     padding: 10px;
 
     &__title {
-      font-size: 4vw;
+      font-size: 2vw;
+      margin-top: .6vw;
+      color: #021A24;
     }
 
     &-content {
@@ -26,13 +28,13 @@
     }
 
     &__item {
-      font-size: 3.5vw;
+      font-size: 1.5vw;
       text-decoration: none;
-      color: palevioletred;
+      color: #1F4659;
     }
 
     &__item:hover {
-      color: rgb(226, 143, 171);
+      color: #336876;
     }
   }
 }
