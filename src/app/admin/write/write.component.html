@@ -1,0 +1,26 @@
+<div class="container">
+
+  <div class="write-container">
+    <mat-form-field>
+      <input matInput placeholder="标题" [(ngModel)]="title">
+    </mat-form-field>
+
+    <mat-form-field>
+      <input matInput [matDatepicker]="picker" placeholder="日期" [formControl]="date">
+      <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+      <mat-datepicker #picker></mat-datepicker>
+    </mat-form-field>
+
+    <mat-form-field>
+      <textarea matInput placeholder="内容" autoHeight="true" [(ngModel)]="markdown"></textarea>
+    </mat-form-field>
+  </div>
+  <div class="view-container">
+    <h1>{{title}}</h1>
+    <markdown ngPreserveWhitespaces [data]="markdown">
+    </markdown>
+  </div>
+  <div class="submit-btn">
+    <button mat-raised-button color="primary">发布</button>
+  </div>
+</div>

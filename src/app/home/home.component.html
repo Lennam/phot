@@ -1,0 +1,10 @@
+<div class="content">
+  <div class="navs">
+    <div class='navs__title'>Nam's</div>
+    <ul class="navs-content">
+      <li *ngFor="let nav of homeNavs">
+        <a class="navs__item" routerLink="{{nav.route}}">{{nav.name}}</a>
+      </li>
+    </ul>
+  </div>
+</div>

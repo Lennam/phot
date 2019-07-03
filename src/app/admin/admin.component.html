@@ -1,0 +1,33 @@
+<div class="admin-container" [class.admin-is-mobile]="mobileQuery.matches">
+  <mat-toolbar color="primary" class="admin-toolbar">
+    <button mat-icon-button (click)="snav.toggle()">
+      <mat-icon>menu</mat-icon>
+    </button>
+    <h1 class="app-name">Nam's</h1>
+    <div class="fill-remaining-space"></div>
+    <button mat-button (click)="logOut()">退出登录</button>
+  </mat-toolbar>
+
+  <mat-sidenav-container class="admin-sidenav-container" [style.marginTop.px]="mobileQuery.matches ? 56 : 0">
+    <mat-sidenav #snav [(opened)]="opended" [mode]="mobileQuery.matches ? 'over' : 'side'"
+      [fixedInViewport]="mobileQuery.matches" fixedTopGap="56">
+      <mat-nav-list>
+        <mat-expansion-panel *ngFor="let item of navs" (opened)="item.opended" (closed)="item.opended">
+          <mat-expansion-panel-header>
+            <mat-panel-title>
+              {{item.name}}
+            </mat-panel-title>
+          </mat-expansion-panel-header>
+          <a mat-list-item routerLink="." *ngFor="let childMenu of item.childMenu">{{childMenu.name}}</a>
+        </mat-expansion-panel>
+      </mat-nav-list>
+    </mat-sidenav>
+
+    <mat-sidenav-content>
+      <!-- <p *ngFor="let content of fillerContent">{{content}}</p> -->
+      <!-- sdfdsfdsf -->
+      <router-outlet></router-outlet>
+
+    </mat-sidenav-content>
+  </mat-sidenav-container>
+</div>
