@@ -1,6 +1,8 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { MessageService } from 'src/app/service/message.service';
-import { MatPaginator, MatTableDataSource } from '@angular/material';
+import { MatPaginator } from '@angular/material/paginator';
+import { MatTableDataSource } from '@angular/material/table';
+import { UserService } from 'src/app/service/user.service';
 
 const ELEMENT_DATA: PeriodicElement[] = [
   { position: 1, name: 'Hydrogen', weight: 1.0079, symbol: 'H' },
@@ -31,13 +33,19 @@ const ELEMENT_DATA: PeriodicElement[] = [
   styleUrls: ['./manage-home.component.scss']
 })
 export class ManageHomeComponent implements OnInit {
-  constructor(private message: MessageService) {}
+  constructor(
+    private message: MessageService,
+    private userService: UserService
+  ) {}
   displayedColumns: string[] = ['position', 'name', 'weight', 'symbol'];
   dataSource = new MatTableDataSource<PeriodicElement>(ELEMENT_DATA);
 
-  @ViewChild(MatPaginator) paginator: MatPaginator;
+  @ViewChild(MatPaginator, {static: false}) paginator: MatPaginator;
 
   ngOnInit() {
+    this.userService.getUserInfo().subscribe(result => {
+      console.log(result);
+    });
     this.dataSource.paginator = this.paginator;
   }
 }

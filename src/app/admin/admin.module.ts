@@ -1,3 +1,5 @@
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { MarkdownModule } from 'ngx-markdown';
 import { MessageService } from './../service/message.service';
 import { AdminComponent } from './admin.component';
 import { NgModule } from '@angular/core';
@@ -6,10 +8,23 @@ import { ManageArticleComponent } from './manage-article/manage-article.componen
 import { ManageHomeComponent } from './manage-home/manage-home.component';
 import { AdminRoutingModule } from './admin-routing.module';
 import { CustomMaterialModule } from '../modules/customMarterialModule.module';
+import { WriteComponent } from './write/write.component';
 
 @NgModule({
-  declarations: [AdminComponent, ManageHomeComponent, ManageArticleComponent],
-  imports: [CommonModule, CustomMaterialModule, AdminRoutingModule],
+  declarations: [
+    AdminComponent,
+    ManageHomeComponent,
+    ManageArticleComponent,
+    WriteComponent
+  ],
+  imports: [
+    CommonModule,
+    CustomMaterialModule,
+    AdminRoutingModule,
+    FormsModule,
+    ReactiveFormsModule,
+    MarkdownModule.forChild()
+  ],
   providers: [MessageService]
 })
 export class AdminModule {}

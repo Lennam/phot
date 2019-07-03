@@ -39,15 +39,30 @@ export class UserService {
       query: gql`
         {
           createUser(
-            username: '${data.username}',
-            password: '${data.password}',
-            mail: '${data.mail ? data.mail : ''}',
-            createDate: ${new Date()}
+            username: "${data.username}",
+            password: "${data.password}",
+            mail: "${data.mail ? data.mail : ''}",
+            createDate: "${new Date()}"
             type: 0
           ) {
             success
             message
             user
+          }
+        }
+      `
+    }).valueChanges;
+  }
+
+  getUserInfo(): Observable<any> {
+    return this.apollo.watchQuery({
+      query: gql`
+        {
+          me {
+            username
+            createDate
+            mail
+            type
           }
         }
       `

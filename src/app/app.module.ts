@@ -21,6 +21,7 @@ import { DigestComponent } from './home/digest/digest.component';
 import { CategoryComponent } from './home/category/category.component';
 import { GraphQLModule } from './graphql.module';
 import { UserService } from './service/user.service';
+import { MarkdownModule } from 'ngx-markdown';
 
 @NgModule({
   declarations: [
@@ -43,7 +44,8 @@ import { UserService } from './service/user.service';
     FormsModule,
     ReactiveFormsModule,
     AppRoutingModule,
-    GraphQLModule
+    GraphQLModule,
+    MarkdownModule.forRoot()
   ],
   providers: [HomeService, MessageService, UserService],
   bootstrap: [AppComponent]
