@@ -1,6 +1,6 @@
 <div class='login-content'>
   <div class='login-box'>
-    <form class="login-form" [formGroup]="loginForm" (ngSubmit)="onSubmit(loginForm)" #form="ngForm">
+    <form class="login-form" [formGroup]="loginForm" (ngSubmit)="onSubmit()" #form="ngForm">
       <mat-form-field>
         <input matInput placeholder="用户名" formControlName="username">
       </mat-form-field>

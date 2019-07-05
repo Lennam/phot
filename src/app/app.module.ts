@@ -36,7 +36,7 @@ import { MarkdownModule } from 'ngx-markdown';
   ],
   imports: [
     // AdminModule,
-    BrowserModule,
+    BrowserModule.withServerTransition({ appId: 'serverApp' }),
     BrowserAnimationsModule,
     HttpClientModule,
     StoreModule.forRoot(reducers, { metaReducers }),
