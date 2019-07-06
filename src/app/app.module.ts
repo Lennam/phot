@@ -22,6 +22,7 @@ import { CategoryComponent } from './home/category/category.component';
 import { GraphQLModule } from './graphql.module';
 import { UserService } from './service/user.service';
 import { MarkdownModule } from 'ngx-markdown';
+import { BlogDetailComponent } from './blog-detail/blog-detail.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,8 @@ import { MarkdownModule } from 'ngx-markdown';
     LoginComponent,
     ManageComponent,
     DigestComponent,
-    CategoryComponent
+    CategoryComponent,
+    BlogDetailComponent
   ],
   imports: [
     // AdminModule,
