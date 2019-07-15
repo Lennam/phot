@@ -1,0 +1,21 @@
+language: node_js
+node_js:
+  - 10.16.0
+# sudo: required
+# branches:
+#   only:
+#     - next
+cache:
+  directories:
+    - node_modules
+before_install:
+  # - chmod +x ./merge.sh
+install:
+  - yarn
+after_success:
+  - chmod 600 ~/.ssh/id_rsa
+  - ssh ubuntu@13.112.54.35 -o StrictHostKeyChecking=no 'cd ~/usr/app/phot && git pull
+    && yarn && yarn build:ssr'
+script: true
+# after_success:
+#   ./merge.sh
