@@ -1,7 +1,7 @@
 import { MessageService } from 'src/app/service/message.service';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, FormControl } from '@angular/forms';
-import { UserService } from '../service/user.service';
+import { UserService } from '../../service/user.service';
 import { Router } from '@angular/router';
 
 @Component({

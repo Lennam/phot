@@ -16,7 +16,7 @@ export class Artical {
     public time: string,
     public content: string,
     public category: string[],
-    private id: number
+    public id: number
   ) {}
 }
 

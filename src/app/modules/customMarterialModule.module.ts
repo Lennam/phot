@@ -43,7 +43,6 @@ import { MatNativeDateModule } from '@angular/material';
     MatExpansionModule,
     MatDatepickerModule,
     MatNativeDateModule
-
   ]
 })
 export class CustomMaterialModule {}
