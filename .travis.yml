@@ -13,5 +13,5 @@ install:
 script: true
 after_success:
   - chmod 600 ~/.ssh/id_rsa
-  - scp -r -o StrictHostKeyChecking=no dist/ ubuntu@13.112.54.35:/usr/app/phot/dist
+  - scp -r -o StrictHostKeyChecking=no dist/ ubuntu@13.112.54.35:/usr/app/phot
   - ssh ubuntu@13.112.54.35 -o StrictHostKeyChecking=no 'cd ~/usr/app/phot && pm2 restart web'
