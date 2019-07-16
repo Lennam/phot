@@ -1,5 +1,5 @@
-import { HomeService } from '../../service/home.service';
-import { HomeNav } from '../../class';
+import { HomeService } from '../service/home.service';
+import { HomeNav } from '../class';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
