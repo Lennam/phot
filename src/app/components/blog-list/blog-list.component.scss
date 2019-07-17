@@ -1,0 +1,22 @@
+.blog-list {
+  margin-top: 2rem;
+
+  &-item {
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+    line-height: 1.5rem;
+    margin: .5rem 0;
+
+    &__title {
+      font-size: 1.2rem;
+      font-weight: 500;
+    }
+
+    &__time {
+      color: #767676;
+      font-size: .9rem;
+    }
+
+  }
+}

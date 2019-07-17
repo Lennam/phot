@@ -1,9 +1,17 @@
-<div class="header-content">
+<div class="content">
   <header class="header">
-    <a class="icon">Nam's</a>
+    <a class="icon">Nam's Blog</a>
     <mat-form-field class="search-bar" style="margin-top: 10px;">
       <input type="text" matInput placeholder="Search...">
       <mat-icon matSuffix>search</mat-icon>
     </mat-form-field>
   </header>
+  <div class="body">
+    <section class="list">
+      <app-blog-list></app-blog-list>
+    </section>
+    <section class="side-bar">
+      <app-about-me></app-about-me>
+    </section>
+  </div>
 </div>

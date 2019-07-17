@@ -4,12 +4,21 @@ import { BlogDetailComponent } from './blog-detail/blog-detail.component';
 import { HomeComponent } from '../home/home.component';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { AppRoutingModule } from '../app-routing.module';
 import { BlogComponent } from './blog.component';
 import { CustomMaterialModule } from '../modules/customMarterialModule.module';
+import { BlogListComponent } from '../components/blog-list/blog-list.component';
+import { AboutMeComponent } from '../components/about-me/about-me.component';
+import { CategoryComponent } from '../components/category/category.component';
 
 @NgModule({
-  declarations: [HomeComponent, BlogDetailComponent, BlogComponent],
+  declarations: [
+    HomeComponent,
+    BlogDetailComponent,
+    BlogComponent,
+    BlogListComponent,
+    AboutMeComponent,
+    CategoryComponent
+  ],
   imports: [
     CommonModule,
     BlogRoutingModule,

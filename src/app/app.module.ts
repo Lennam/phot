@@ -19,7 +19,7 @@ import { MarkdownModule } from 'ngx-markdown';
 import { BlogModule } from './blog/blog.module';
 
 @NgModule({
-  declarations: [AppComponent, ManageComponent, CategoryComponent],
+  declarations: [AppComponent, ManageComponent],
   imports: [
     // AdminModule,
     BlogModule,
