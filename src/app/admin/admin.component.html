@@ -18,7 +18,8 @@
               {{item.name}}
             </mat-panel-title>
           </mat-expansion-panel-header>
-          <a mat-list-item routerLink="." *ngFor="let childMenu of item.childMenu">{{childMenu.name}}</a>
+          <a mat-list-item *ngFor="let childMenu of item.childMenu"
+            [routerLink]="childMenu.router">{{childMenu.name}}</a>
         </mat-expansion-panel>
       </mat-nav-list>
     </mat-sidenav>

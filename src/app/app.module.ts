@@ -17,9 +17,10 @@ import { GraphQLModule } from './graphql.module';
 import { UserService } from './service/user.service';
 import { MarkdownModule } from 'ngx-markdown';
 import { BlogModule } from './blog/blog.module';
+import { LoginComponent } from './login/login.component';
 
 @NgModule({
-  declarations: [AppComponent, ManageComponent],
+  declarations: [AppComponent, ManageComponent, LoginComponent],
   imports: [
     // AdminModule,
     BlogModule,

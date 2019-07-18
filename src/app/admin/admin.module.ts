@@ -9,15 +9,13 @@ import { ManageHomeComponent } from './manage-home/manage-home.component';
 import { AdminRoutingModule } from './admin-routing.module';
 import { CustomMaterialModule } from '../modules/customMarterialModule.module';
 import { WriteComponent } from './write/write.component';
-import { LoginComponent } from './login/login.component';
 
 @NgModule({
   declarations: [
     AdminComponent,
     ManageHomeComponent,
     ManageArticleComponent,
-    WriteComponent,
-    LoginComponent
+    WriteComponent
   ],
   imports: [
     CommonModule,

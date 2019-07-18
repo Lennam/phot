@@ -18,7 +18,10 @@ export class AdminComponent implements OnInit, OnDestroy {
     {
       name: '文章',
       opended: false,
-      childMenu: [{ name: '写文章' }, { name: '文章管理' }]
+      childMenu: [
+        { name: '写文章', router: 'write' },
+        { name: '文章管理', router: 'manage' }
+      ]
     },
     { name: '用户', opended: false, childMenu: [{ name: '用户管理' }] }
   ];
