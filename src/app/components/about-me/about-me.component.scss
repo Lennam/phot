@@ -1,0 +1,21 @@
+.about-me {
+  border-left: 1px solid #767676;
+  margin: 1rem 0;
+  padding: 1rem;
+
+  img {
+    width: 150px;
+    height: 150px;
+    display: block;
+    margin-bottom: 1rem;
+  }
+
+  &-list {
+    margin-left: 1rem;
+
+    li {
+      line-height: 1.5rem;
+      font-size: .9rem;
+    }
+  }
+}
