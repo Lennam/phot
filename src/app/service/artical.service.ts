@@ -25,7 +25,56 @@ export class ArticalService {
             createDate: "${data.createDate}",
             category: [],
           ) {
-            title
+            artical {
+              title
+              id
+            }
+          }
+        }
+      `
+    });
+  }
+
+  getArtical(id: string): Observable<any> {
+    return this.apollo.watchQuery({
+      query: gql`
+        {
+          artical(id: ${id}) {
+            # success
+            artical
+          }
+        }
+      `
+    }).valueChanges;
+  }
+
+  getArticals(pageIndex: number): Observable<any> {
+    return this.apollo.watchQuery({
+      query: gql`
+        {
+          articals(pageIndex: ${pageIndex}) {
+            # success
+            pageIndex
+            list {
+              id
+              title
+              createDate
+              category
+            }
+          }
+        }
+      `
+    }).valueChanges;
+  }
+
+  deleteArtical(id): Observable<any> {
+    return this.apollo.mutate({
+      mutation: gql`
+        mutation DeleteArtical{
+          deleteArtical(
+            id: "${id}"
+          ){
+            success
           }
         }
       `

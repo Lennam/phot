@@ -11,7 +11,11 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatTableModule } from '@angular/material/table';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { NgModule } from '@angular/core';
-import { MatNativeDateModule } from '@angular/material';
+import {
+  MatNativeDateModule,
+  MatCheckboxModule,
+  MatDialogModule
+} from '@angular/material';
 
 @NgModule({
   imports: [
@@ -27,7 +31,11 @@ import { MatNativeDateModule } from '@angular/material';
     MatPaginatorModule,
     MatExpansionModule,
     MatDatepickerModule,
-    MatNativeDateModule
+    MatNativeDateModule,
+    MatTableModule,
+    MatPaginatorModule,
+    MatCheckboxModule,
+    MatDialogModule
   ],
   exports: [
     MatInputModule,
@@ -42,7 +50,11 @@ import { MatNativeDateModule } from '@angular/material';
     MatPaginatorModule,
     MatExpansionModule,
     MatDatepickerModule,
-    MatNativeDateModule
+    MatNativeDateModule,
+    MatTableModule,
+    MatPaginatorModule,
+    MatCheckboxModule,
+    MatDialogModule
   ]
 })
 export class CustomMaterialModule {}

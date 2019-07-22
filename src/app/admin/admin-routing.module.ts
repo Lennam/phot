@@ -16,8 +16,8 @@ const adminRoutes: Routes = [
         canActivateChild: [],
         children: [
           { path: 'home', component: ManageHomeComponent },
-          { path: 'article', component: ManageArticleComponent },
-          { path: 'article/:id', component: ManageArticleComponent },
+          { path: 'artical', component: ManageArticleComponent },
+          { path: 'artical/:id', component: ManageArticleComponent },
           { path: 'write', component: WriteComponent },
           { path: '', pathMatch: 'full', redirectTo: 'home' }
         ]

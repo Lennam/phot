@@ -1,3 +1,4 @@
+import { OperationWarnDialogComponent } from 'src/app/components/operation-warn-dialog/operation-warn-dialog.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MarkdownModule } from 'ngx-markdown';
 import { MessageService } from './../service/message.service';
@@ -11,11 +12,14 @@ import { CustomMaterialModule } from '../modules/customMarterialModule.module';
 import { WriteComponent } from './write/write.component';
 
 @NgModule({
+  entryComponents: [OperationWarnDialogComponent],
+
   declarations: [
     AdminComponent,
     ManageHomeComponent,
     ManageArticleComponent,
-    WriteComponent
+    WriteComponent,
+    OperationWarnDialogComponent
   ],
   imports: [
     CommonModule,

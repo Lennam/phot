@@ -1,0 +1,17 @@
+.manage-artical {
+  padding: 1rem;
+
+  .filter-form {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+
+    button {
+      margin-top: -10px;
+    }
+  }
+
+  table {
+    width: 100%;
+  }
+}
