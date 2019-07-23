@@ -39,9 +39,12 @@ export class ArticalService {
     return this.apollo.watchQuery({
       query: gql`
         {
-          artical(id: ${id}) {
+          artical(id: "${id}") {
             # success
-            artical
+            title
+            content
+            createDate
+            category
           }
         }
       `
@@ -63,7 +66,8 @@ export class ArticalService {
             }
           }
         }
-      `
+      `,
+      fetchPolicy: 'network-only'
     }).valueChanges;
   }
 

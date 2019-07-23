@@ -1,7 +1,7 @@
 import { MessageService } from './../../service/message.service';
 import { ArticalService } from './../../service/artical.service';
 import { SelectionModel } from '@angular/cdk/collections';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { createDeflate } from 'zlib';
 import {
@@ -10,6 +10,7 @@ import {
   MAT_DIALOG_DATA
 } from '@angular/material/dialog';
 import { OperationWarnDialogComponent } from 'src/app/components/operation-warn-dialog/operation-warn-dialog.component';
+import { MatTableDataSource, MatTable } from '@angular/material';
 
 export interface Artical {
   id: string;
@@ -24,6 +25,8 @@ export interface Artical {
   styleUrls: ['./manage-article.component.scss']
 })
 export class ManageArticleComponent implements OnInit {
+  @ViewChild(MatTable, { static: false }) table: MatTable<any>;
+
   displayedColumns: string[] = [
     'select',
     'title',
@@ -51,6 +54,11 @@ export class ManageArticleComponent implements OnInit {
   getArticals() {
     this.articalService.getArticals(1).subscribe(result => {
       this.dataSource = result.data.articals.list;
+      console.log(2347923789);
+      this.table.renderRows();
+      // this.dataSource.data = new MatTableDataSource<Artical>(
+      //   result.data.articals.list
+      // );
     });
   }
 
@@ -84,11 +92,9 @@ export class ManageArticleComponent implements OnInit {
       }
     });
 
-    dialogRef.afterClosed().subscribe(result => {
-      if (result === 'yes') {
-        console.log(row);
+    dialogRef.afterClosed().subscribe(choose => {
+      if (choose === 'yes') {
         this.articalService.deleteArtical(row.id).subscribe(data => {
-          console.log(data);
           if (data.data.deleteArtical.success) {
             this.getArticals();
             this.messageService.showSnackbar('success', '删除成功！');

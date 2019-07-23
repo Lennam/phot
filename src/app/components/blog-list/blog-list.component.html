@@ -1,12 +1,6 @@
-<div class="blog-list">
-  <div>
-    <ul>
-      <li *ngFor="let item of blogList" class="blog-list-item">
-        <a [routerLink]="['/blog/{item.id}']" routerLinkActive="router-link-active">
-          <span class="blog-list-item__title">{{item.title}}</span>
-          <span class="blog-list-item__time">{{item.time}}</span>
-        </a>
-      </li>
-    </ul>
-  </div>
-</div>
+<li class="blog-list-item">
+  <a [routerLink]="['/blog',artical.id]" routerLinkActive="router-link-active">
+    <span class="blog-list-item__title">{{artical.title}}</span>
+    <span class="blog-list-item__time">{{artical.createDate | date: "yy-MM-dd"}}</span>
+  </a>
+</li>

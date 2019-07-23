@@ -42,9 +42,7 @@ export class AdminComponent implements OnInit, OnDestroy {
     this.mobileQuery.removeListener(this._mobileQueryListener);
   }
 
-  ngOnInit() {
-    console.log(123);
-  }
+  ngOnInit() {}
 
   logOut(): void {
     window.localStorage.removeItem('token');

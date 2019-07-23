@@ -1,10 +1,10 @@
 <div class="detail-content">
-  <div class="wrapper">
+  <div class="wrapper" *ngIf="artical">
     <div class="line"></div>
     <div class="title">{{artical.title}}</div>
     <div class="time">
       <mat-icon matSuffix>calendar_today</mat-icon>
-      <span class="time__date">{{artical.time}}</span>
+      <span class="time__date">{{artical.createDate}}</span>
     </div>
     <div class="content">
       <markdown ngPreserveWhitespaces [data]="artical.content">

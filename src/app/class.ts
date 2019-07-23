@@ -13,7 +13,7 @@ export class ArticalTitle {
 export class Artical {
   constructor(
     public title: string,
-    public time: string,
+    public createDate: string,
     public content: string,
     public category: string[],
     public id: number
