@@ -8,7 +8,7 @@ interface CreateArticalBody {
   title: string;
   content: string;
   createDate: string;
-  category?: string[];
+  category: string;
 }
 
 @Injectable({ providedIn: 'root' })
@@ -23,7 +23,7 @@ export class ArticalService {
             title: "${data.title}",
             content: "${data.content}",
             createDate: "${data.createDate}",
-            category: [],
+            category: "${data.category}",
           ) {
             artical {
               title

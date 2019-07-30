@@ -3,6 +3,11 @@ import { ArticalService } from './../../service/artical.service';
 import { Component, OnInit } from '@angular/core';
 import { FormControl } from '@angular/forms';
 
+export interface Category {
+  value: string;
+  name: string;
+}
+
 @Component({
   selector: 'app-write',
   templateUrl: './write.component.html',
@@ -12,6 +17,14 @@ export class WriteComponent implements OnInit {
   markdown: string;
   title: string;
 
+  categoryList: Category[] = [
+    { value: 'steak-0', name: 'Steak' },
+    { value: 'pizza-1', name: 'Pizza' },
+    { value: 'tacos-2', name: 'Tacos' }
+  ];
+
+  category: string;
+
   date = new FormControl(new Date());
   serializedDate = new FormControl(new Date().toISOString());
   constructor(
@@ -20,6 +33,7 @@ export class WriteComponent implements OnInit {
   ) {
     this.markdown = '';
     this.title = '';
+    this.category = '';
   }
 
   ngOnInit() {}
@@ -31,7 +45,7 @@ export class WriteComponent implements OnInit {
         title: this.title,
         content: this.markdown,
         createDate: this.date.value,
-        category: ['js', '13']
+        category: this.category
       })
       .subscribe(
         result => {

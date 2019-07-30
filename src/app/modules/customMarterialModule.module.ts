@@ -14,7 +14,8 @@ import { NgModule } from '@angular/core';
 import {
   MatNativeDateModule,
   MatCheckboxModule,
-  MatDialogModule
+  MatDialogModule,
+  MatSelectModule
 } from '@angular/material';
 
 @NgModule({
@@ -35,7 +36,8 @@ import {
     MatTableModule,
     MatPaginatorModule,
     MatCheckboxModule,
-    MatDialogModule
+    MatDialogModule,
+    MatSelectModule
   ],
   exports: [
     MatInputModule,
@@ -54,7 +56,8 @@ import {
     MatTableModule,
     MatPaginatorModule,
     MatCheckboxModule,
-    MatDialogModule
+    MatDialogModule,
+    MatSelectModule
   ]
 })
 export class CustomMaterialModule {}

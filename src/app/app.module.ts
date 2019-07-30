@@ -9,7 +9,6 @@ import { StoreModule } from '@ngrx/store';
 import { reducers, metaReducers } from './reducers';
 import { HttpClientModule } from '@angular/common/http';
 import { HomeService } from './service/home.service';
-import { ManageComponent } from './manage/manage.component';
 import { CustomMaterialModule } from './modules/customMarterialModule.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CategoryComponent } from './components/category/category.component';
@@ -20,7 +19,7 @@ import { BlogModule } from './blog/blog.module';
 import { LoginComponent } from './login/login.component';
 
 @NgModule({
-  declarations: [AppComponent, ManageComponent, LoginComponent],
+  declarations: [AppComponent, LoginComponent],
   imports: [
     // AdminModule,
     BlogModule,

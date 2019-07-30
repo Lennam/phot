@@ -17,6 +17,32 @@
     padding: 0 20px;
     border-bottom: 1px solid #cccccc;
 
+    .icon {
+      color: rgba(0, 0, 0, .54);
+      font-weight: 700;
+      cursor: pointer;
+      position: relative;
+    }
+
+    .icon:hover {
+      color: rgba(0, 0, 0, .74);
+
+      bckg &__dot {
+        animation: flyaround;
+
+      }
+    }
+
+    .icon__dot {
+      position: absolute;
+      height: 2px;
+      // width: 1px;
+      left: 34px;
+      top: 2px;
+      border: 1px solid rgba(0, 0, 0, .54);
+      transition: all linear;
+    }
+
   }
 
   .body {
@@ -40,4 +66,21 @@
 
 .mat-form-field-suffix {
   margin-bottom: -5px !important;
+}
+
+@keyframes flyaround {
+  0% {
+    left: 34px;
+    top: 2px;
+  }
+
+  50% {
+    left: 340px;
+    top: 20px;
+  }
+
+  100% {
+    left: 34px;
+    top: 2px;
+  }
 }

@@ -8,18 +8,13 @@ describe('OperationWarnDialogComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ OperationWarnDialogComponent ]
-    })
-    .compileComponents();
+      declarations: [OperationWarnDialogComponent]
+    }).compileComponents();
   }));
 
   beforeEach(() => {
     fixture = TestBed.createComponent(OperationWarnDialogComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
-  });
-
-  it('should create', () => {
-    expect(component).toBeTruthy();
   });
 });

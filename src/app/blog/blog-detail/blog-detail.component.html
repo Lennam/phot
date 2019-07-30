@@ -4,7 +4,7 @@
     <div class="title">{{artical.title}}</div>
     <div class="time">
       <mat-icon matSuffix>calendar_today</mat-icon>
-      <span class="time__date">{{artical.createDate}}</span>
+      <span class="time__date">{{artical.createDate | date: 'yy-MM-dd'}}</span>
     </div>
     <div class="content">
       <markdown ngPreserveWhitespaces [data]="artical.content">
@@ -12,16 +12,16 @@
     </div>
     <div class="category">
       <mat-icon matSuffix>local_offer</mat-icon>
-      <a *ngFor="let item of artical.category" class="tap">{{item}}</a>
+      <a class="tap">{{artical.category}}</a>
     </div>
     <div class="others">
       <div class="previous">
         <div>- Previous</div>
-        <div class="link"><a href="">舒服的角度来说</a></div>
+        <div class="link"><a href="">上一篇</a></div>
       </div>
       <div class="next" style="text-align: right;">
         <div>- Next</div>
-        <div class="link"><a href="">受到法律的手机费</a></div>
+        <div class="link"><a href="">下一篇</a></div>
       </div>
     </div>
   </div>
