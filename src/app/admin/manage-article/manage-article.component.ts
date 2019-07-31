@@ -54,7 +54,6 @@ export class ManageArticleComponent implements OnInit {
   getArticals() {
     this.articalService.getArticals(1).subscribe(result => {
       this.dataSource = result.data.articals.list;
-      console.log(2347923789);
       this.table.renderRows();
       // this.dataSource.data = new MatTableDataSource<Artical>(
       //   result.data.articals.list

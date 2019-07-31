@@ -1,3 +1,5 @@
+import { MessageService } from 'src/app/service/message.service';
+import { onError } from 'apollo-link-error';
 import { NgModule } from '@angular/core';
 import { ApolloModule, APOLLO_OPTIONS } from 'apollo-angular';
 import { HttpLinkModule, HttpLink } from 'apollo-angular-link-http';
@@ -6,7 +8,10 @@ import { ApolloLink, concat } from 'apollo-link';
 import { HttpHeaders } from '@angular/common/http';
 
 const uri = 'http://localhost:3000/graphql'; // <-- add the URL of the GraphQL server here
-export function createApollo(httpLink: HttpLink) {
+export function createApollo(
+  httpLink: HttpLink,
+  messageService: MessageService
+) {
   const http = httpLink.create({ uri });
 
   const authMiddleware = new ApolloLink((operation, forward) => {
@@ -21,10 +26,25 @@ export function createApollo(httpLink: HttpLink) {
     }
     return forward(operation);
   });
+  console.log(httpLink);
+
+  const errorLink = onError(({ graphQLErrors, networkError, response }) => {
+    if (response.errors) {
+      messageService.showSnackbar('error', response.errors[0].message);
+    }
+  });
 
   return {
-    link: concat(authMiddleware, http),
-    cache: new InMemoryCache()
+    link: errorLink.concat(concat(authMiddleware, http)),
+    cache: new InMemoryCache(),
+    defaultOptions: {
+      watchQuery: {
+        errorPolicy: 'all'
+      },
+      mutate: {
+        errorPolicy: 'all'
+      }
+    }
   };
 }
 
@@ -34,7 +54,7 @@ export function createApollo(httpLink: HttpLink) {
     {
       provide: APOLLO_OPTIONS,
       useFactory: createApollo,
-      deps: [HttpLink]
+      deps: [HttpLink, MessageService]
     }
   ]
 })

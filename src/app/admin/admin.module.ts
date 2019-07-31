@@ -1,4 +1,4 @@
-import { FormDialogComponent } from './../components/form-dialog/form-dialog.component';
+import { CategoryFormDialogComponent } from '../components/category-form-dialog/category-form-dialog.component';
 import { OperationWarnDialogComponent } from 'src/app/components/operation-warn-dialog/operation-warn-dialog.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MarkdownModule } from 'ngx-markdown';
@@ -14,7 +14,7 @@ import { WriteComponent } from './write/write.component';
 import { ManageCategoryComponent } from './manage-category/manage-category.component';
 
 @NgModule({
-  entryComponents: [OperationWarnDialogComponent, FormDialogComponent],
+  entryComponents: [OperationWarnDialogComponent, CategoryFormDialogComponent],
 
   declarations: [
     AdminComponent,
@@ -22,7 +22,7 @@ import { ManageCategoryComponent } from './manage-category/manage-category.compo
     ManageArticleComponent,
     WriteComponent,
     OperationWarnDialogComponent,
-    FormDialogComponent,
+    CategoryFormDialogComponent,
     ManageCategoryComponent
   ],
   imports: [

@@ -1,4 +1,4 @@
-import { Observable } from 'rxjs';
+import { Observable, Subject } from 'rxjs';
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Apollo } from 'apollo-angular';
@@ -10,22 +10,27 @@ interface CreateCategoryBody {
 }
 
 @Injectable({ providedIn: 'root' })
-export class ArticalService {
+export class CategoryService {
   constructor(private httpClient: HttpClient, private apollo: Apollo) {}
 
-  CreateCategory(data: CreateCategoryBody): Observable<any> {
+  // 通讯
+  private createStatusSource = new Subject<boolean>();
+  createStatus$ = this.createStatusSource.asObservable();
+  createStatus(status: boolean) {
+    this.createStatusSource.next(status);
+  }
+
+  createCategory(data: CreateCategoryBody): Observable<any> {
     return this.apollo.mutate({
       mutation: gql`
         mutation CreateCategory{
-          createArtical(
+          createCategory(
             name: "${data.name}",
             value: "${data.value}",
           ) {
-            artical {
-              title
-              id
+              name
+              value
             }
-          }
         }
       `
     });
@@ -35,11 +40,23 @@ export class ArticalService {
     return this.apollo.watchQuery({
       query: gql`
         {
-          category() {
-            category
+          category {
+            name
+            value
           }
         }
-      `
+      `,
+      fetchPolicy: 'network-only'
     }).valueChanges;
+  }
+
+  deleteCategory(name: string): Observable<any> {
+    return this.apollo.mutate({
+      mutation: gql`
+        mutation DeleteCategory{
+          deleteCategory(name: "${name}")
+        }
+      `
+    });
   }
 }

@@ -1,6 +1,6 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { FormDialogComponent } from './form-dialog.component';
+import { FormDialogComponent } from './category-form-dialog.component';
 
 describe('FormDialogComponent', () => {
   let component: FormDialogComponent;
@@ -8,9 +8,8 @@ describe('FormDialogComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ FormDialogComponent ]
-    })
-    .compileComponents();
+      declarations: [FormDialogComponent]
+    }).compileComponents();
   }));
 
   beforeEach(() => {

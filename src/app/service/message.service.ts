@@ -1,5 +1,9 @@
 import { Injectable } from '@angular/core';
-import { MatSnackBar, MatSnackBarRef, SimpleSnackBar } from '@angular/material/snack-bar';
+import {
+  MatSnackBar,
+  MatSnackBarRef,
+  SimpleSnackBar
+} from '@angular/material/snack-bar';
 
 @Injectable()
 export class MessageService {
@@ -7,7 +11,7 @@ export class MessageService {
 
   showSnackbar(type: string, message: string): MatSnackBarRef<SimpleSnackBar> {
     return this.snackBar.open(message, '知道了！', {
-      duration: 2000,
+      duration: 3000,
       verticalPosition: 'top',
       panelClass: `${type}-snackbar`
     });
