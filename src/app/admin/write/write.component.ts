@@ -1,7 +1,11 @@
+import { Router } from '@angular/router';
+import { CategoryService } from './../../service/category.service';
 import { MessageService } from './../../service/message.service';
 import { ArticalService } from './../../service/artical.service';
 import { Component, OnInit } from '@angular/core';
 import { FormControl } from '@angular/forms';
+import { MarkedRenderer } from 'ngx-markdown';
+import * as marked from 'marked';
 
 export interface Category {
   value: string;
@@ -17,11 +21,7 @@ export class WriteComponent implements OnInit {
   markdown: string;
   title: string;
 
-  categoryList: Category[] = [
-    { value: 'steak-0', name: 'Steak' },
-    { value: 'pizza-1', name: 'Pizza' },
-    { value: 'tacos-2', name: 'Tacos' }
-  ];
+  categoryList: Category[] = [];
 
   category: string;
 
@@ -29,17 +29,24 @@ export class WriteComponent implements OnInit {
   serializedDate = new FormControl(new Date().toISOString());
   constructor(
     private articalService: ArticalService,
-    private messageService: MessageService
+    private messageService: MessageService,
+    private categoryService: CategoryService,
+    private router: Router
   ) {
     this.markdown = '';
     this.title = '';
     this.category = '';
   }
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.categoryService.category().subscribe(result => {
+      this.categoryList = result.data.category;
+    });
+  }
 
   submit() {
-    // console.log(this.date.value);
+    // const tokens = marked.lexer(this.markdown);
+    // const html = marked.parser(tokens);
     this.articalService
       .createArtical({
         title: this.title,
@@ -49,7 +56,12 @@ export class WriteComponent implements OnInit {
       })
       .subscribe(
         result => {
-          console.log(result);
+          this.messageService
+            .showSnackbar('success', '发布成功')
+            .afterDismissed()
+            .subscribe(() => {
+              this.router.navigate(['/admin/artical']);
+            });
         },
         error => {
           this.messageService.showSnackbar('warning', error);

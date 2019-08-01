@@ -3,6 +3,8 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { Artical } from 'src/app/class';
 import { ActivatedRoute } from '@angular/router';
+import { Observable, of } from 'rxjs';
+import { switchMap } from 'rxjs/operators';
 
 @Component({
   selector: 'app-blog-detail',
@@ -10,7 +12,7 @@ import { ActivatedRoute } from '@angular/router';
   styleUrls: ['./blog-detail.component.scss']
 })
 export class BlogDetailComponent implements OnInit {
-  artical: Artical;
+  artical$: Observable<Artical>;
   constructor(
     private route: ActivatedRoute,
     private articalService: ArticalService
@@ -21,10 +23,11 @@ export class BlogDetailComponent implements OnInit {
   }
 
   getArtical() {
-    const id = this.route.snapshot.paramMap.get('id');
-    this.articalService.getArtical(id).subscribe(result => {
-      this.artical = result.data.artical;
-      console.log(this.artical);
-    });
+    this.artical$ = this.route.paramMap.pipe(
+      switchMap(pramas => {
+        return this.articalService.getArtical(pramas.get('id'));
+      })
+    );
+    // console.log(this.artical$);
   }
 }

@@ -6,11 +6,13 @@ import { HttpLinkModule, HttpLink } from 'apollo-angular-link-http';
 import { InMemoryCache } from 'apollo-cache-inmemory';
 import { ApolloLink, concat } from 'apollo-link';
 import { HttpHeaders } from '@angular/common/http';
+import { Router } from '@angular/router';
 
 const uri = 'http://localhost:3000/graphql'; // <-- add the URL of the GraphQL server here
 export function createApollo(
   httpLink: HttpLink,
-  messageService: MessageService
+  messageService: MessageService,
+  router: Router
 ) {
   const http = httpLink.create({ uri });
 
@@ -20,18 +22,21 @@ export function createApollo(
       operation.setContext({
         headers: new HttpHeaders().set(
           'Authorization',
-          localStorage.getItem('token') || null
+          localStorage.getItem('token') || ''
         )
       });
     }
     return forward(operation);
   });
-  console.log(httpLink);
 
   const errorLink = onError(({ graphQLErrors, networkError, response }) => {
-    if (response.errors) {
+    if (response && response.errors) {
       messageService.showSnackbar('error', response.errors[0].message);
+      if (response.errors[0].message === '您没有权限，请登录后再试！') {
+        router.navigate(['/login']);
+      }
     }
+    return response.data;
   });
 
   return {
@@ -54,7 +59,7 @@ export function createApollo(
     {
       provide: APOLLO_OPTIONS,
       useFactory: createApollo,
-      deps: [HttpLink, MessageService]
+      deps: [HttpLink, MessageService, Router]
     }
   ]
 })

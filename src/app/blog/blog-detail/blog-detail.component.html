@@ -1,5 +1,5 @@
 <div class="detail-content">
-  <div class="wrapper" *ngIf="artical">
+  <div class="wrapper" *ngIf="artical$ | async as artical">
     <div class="line"></div>
     <div class="title">{{artical.title}}</div>
     <div class="time">
@@ -16,12 +16,18 @@
     </div>
     <div class="others">
       <div class="previous">
-        <div>- Previous</div>
-        <div class="link"><a href="">上一篇</a></div>
+        <div (click)="console.log(artical)">- Previous</div>
+        <div class="link">
+          <a *ngIf="artical.pre" [routerLink]="['/blog', artical.pre.id]"
+            routerLinkActive="router-link-active">{{artical.pre.title}}</a>
+        </div>
       </div>
       <div class="next" style="text-align: right;">
         <div>- Next</div>
-        <div class="link"><a href="">下一篇</a></div>
+        <div class="link">
+          <a *ngIf="artical.next" [routerLink]="['/blog', artical.next.id]"
+            routerLinkActive="router-link-active">{{artical.next.title}}</a>
+        </div>
       </div>
     </div>
   </div>

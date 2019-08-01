@@ -16,7 +16,9 @@ export class Artical {
     public createDate: string,
     public content: string,
     public category: string[],
-    public id: number
+    public id: number,
+    public pre: object,
+    public next: object
   ) {}
 }
 

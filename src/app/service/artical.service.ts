@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Apollo } from 'apollo-angular';
 import gql from 'graphql-tag';
+import { map } from 'rxjs/operators';
 
 interface CreateArticalBody {
   title: string;
@@ -17,11 +18,12 @@ export class ArticalService {
 
   createArtical(data: CreateArticalBody): Observable<any> {
     return this.apollo.mutate({
+      variables: { content: data.content },
       mutation: gql`
-        mutation CreateArtical{
+        mutation CreateArtical($content: String){
           createArtical(
             title: "${data.title}",
-            content: "${data.content}",
+            content: $content,
             createDate: "${data.createDate}",
             category: "${data.category}",
           ) {
@@ -36,8 +38,9 @@ export class ArticalService {
   }
 
   getArtical(id: string): Observable<any> {
-    return this.apollo.watchQuery({
-      query: gql`
+    return this.apollo
+      .watchQuery({
+        query: gql`
         {
           artical(id: "${id}") {
             # success
@@ -45,10 +48,19 @@ export class ArticalService {
             content
             createDate
             category
+            pre {
+              id
+              title
+            }
+            next {
+              id
+              title
+            }
           }
         }
       `
-    }).valueChanges;
+      })
+      .valueChanges.pipe(map(item => item.data.artical));
   }
 
   getArticals(pageIndex: number): Observable<any> {

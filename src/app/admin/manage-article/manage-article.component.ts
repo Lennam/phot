@@ -52,13 +52,18 @@ export class ManageArticleComponent implements OnInit {
   }
 
   getArticals() {
-    this.articalService.getArticals(1).subscribe(result => {
-      this.dataSource = result.data.articals.list;
-      this.table.renderRows();
-      // this.dataSource.data = new MatTableDataSource<Artical>(
-      //   result.data.articals.list
-      // );
-    });
+    this.articalService.getArticals(1).subscribe(
+      result => {
+        this.dataSource = result.data.articals.list;
+        this.table.renderRows();
+        // this.dataSource.data = new MatTableDataSource<Artical>(
+        //   result.data.articals.list
+        // );
+      },
+      error => {
+        this.messageService.showSnackbar('warning', error);
+      }
+    );
   }
 
   isAllSelected() {
