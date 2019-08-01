@@ -60,7 +60,7 @@ export class ArticalService {
         }
       `
       })
-      .valueChanges.pipe(map(item => item.data.artical));
+      .valueChanges.pipe(map(item => item.data));
   }
 
   getArticals(pageIndex: number): Observable<any> {

@@ -3,8 +3,8 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { Artical } from 'src/app/class';
 import { ActivatedRoute } from '@angular/router';
-import { Observable, of } from 'rxjs';
-import { switchMap } from 'rxjs/operators';
+import { Observable } from 'rxjs';
+import { switchMap, map } from 'rxjs/operators';
 
 @Component({
   selector: 'app-blog-detail',
@@ -25,7 +25,9 @@ export class BlogDetailComponent implements OnInit {
   getArtical() {
     this.artical$ = this.route.paramMap.pipe(
       switchMap(pramas => {
-        return this.articalService.getArtical(pramas.get('id'));
+        return this.articalService
+          .getArtical(pramas.get('id'))
+          .pipe(map(item => item.artical));
       })
     );
     // console.log(this.artical$);
