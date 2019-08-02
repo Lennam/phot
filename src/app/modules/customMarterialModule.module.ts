@@ -15,7 +15,9 @@ import {
   MatNativeDateModule,
   MatCheckboxModule,
   MatDialogModule,
-  MatSelectModule
+  MatSelectModule,
+  MatProgressSpinnerModule,
+  MatCardModule
 } from '@angular/material';
 
 @NgModule({
@@ -37,7 +39,9 @@ import {
     MatPaginatorModule,
     MatCheckboxModule,
     MatDialogModule,
-    MatSelectModule
+    MatSelectModule,
+    MatProgressSpinnerModule,
+    MatCardModule
   ],
   exports: [
     MatInputModule,
@@ -57,7 +61,9 @@ import {
     MatPaginatorModule,
     MatCheckboxModule,
     MatDialogModule,
-    MatSelectModule
+    MatSelectModule,
+    MatProgressSpinnerModule,
+    MatCardModule
   ]
 })
 export class CustomMaterialModule {}

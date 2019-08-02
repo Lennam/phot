@@ -3,6 +3,7 @@
   width: 50vw;
   margin: 0 auto;
   padding-top: 20px;
+  // position: relative;
 
   .wrapper {
     text-align: left;
@@ -75,6 +76,19 @@
       }
     }
 
+  }
+
+  .loading-icon {
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    left: 0;
+    top: 0;
+    background: rgba($color: #ffffff, $alpha: 0.7);
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 
 

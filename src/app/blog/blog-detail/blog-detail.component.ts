@@ -13,6 +13,7 @@ import { switchMap, map } from 'rxjs/operators';
 })
 export class BlogDetailComponent implements OnInit {
   artical$: Observable<Artical>;
+  loading = false;
   constructor(
     private route: ActivatedRoute,
     private articalService: ArticalService
@@ -25,9 +26,21 @@ export class BlogDetailComponent implements OnInit {
   getArtical() {
     this.artical$ = this.route.paramMap.pipe(
       switchMap(pramas => {
-        return this.articalService
-          .getArtical(pramas.get('id'))
-          .pipe(map(item => item.artical));
+        this.loading = true;
+        return this.articalService.getArtical(pramas.get('id')).pipe(
+          map(item => {
+            this.loading = false;
+            const scrollToTop = window.setInterval(() => {
+              const pos = window.pageYOffset;
+              if (pos > 0) {
+                window.scrollTo(0, pos - 180); // how far to scroll on each step
+              } else {
+                window.clearInterval(scrollToTop);
+              }
+            }, 16);
+            return item.artical;
+          })
+        );
       })
     );
     // console.log(this.artical$);

@@ -41,7 +41,7 @@ export class ArticalService {
     return this.apollo
       .watchQuery({
         query: gql`
-        {
+        query Artical{
           artical(id: "${id}") {
             # success
             title
@@ -66,7 +66,7 @@ export class ArticalService {
   getArticals(pageIndex: number): Observable<any> {
     return this.apollo.watchQuery({
       query: gql`
-        {
+        query Articals{
           articals(pageIndex: ${pageIndex}) {
             # success
             pageIndex

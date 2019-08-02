@@ -8,7 +8,14 @@ import { ApolloLink, concat } from 'apollo-link';
 import { HttpHeaders } from '@angular/common/http';
 import { Router } from '@angular/router';
 
-const uri = 'http://localhost:3000/graphql'; // <-- add the URL of the GraphQL server here
+const uri = 'http://localhost:3000/graphql'; // the URL of the GraphQL server
+
+const noTokenApi = {
+  Login: '登录',
+  Articals: '文章列表',
+  Artical: '文章详情'
+};
+
 export function createApollo(
   httpLink: HttpLink,
   messageService: MessageService,
@@ -18,7 +25,8 @@ export function createApollo(
 
   const authMiddleware = new ApolloLink((operation, forward) => {
     // add the authorization to the headers
-    if (operation.operationName !== 'Login') {
+    console.log('ApiName: ', operation.operationName);
+    if (!noTokenApi[operation.operationName]) {
       operation.setContext({
         headers: new HttpHeaders().set(
           'Authorization',

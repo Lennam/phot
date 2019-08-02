@@ -9,6 +9,7 @@ const blogRoutes: Routes = [
     path: 'blog',
     component: BlogComponent,
     canActivate: [],
+    data: { animation: 'heroes' },
     children: [
       {
         path: '',
@@ -21,7 +22,11 @@ const blogRoutes: Routes = [
       }
     ]
   },
-  { path: 'blog/:id', component: BlogDetailComponent }
+  {
+    path: 'blog/:id',
+    component: BlogDetailComponent,
+    data: { animation: 'hero' }
+  }
 ];
 
 @NgModule({

@@ -15,14 +15,14 @@
       <a class="tap">{{artical.category}}</a>
     </div>
     <div class="others">
-      <div class="previous">
+      <div class="previous" *ngIf="artical.pre">
         <div (click)="console.log(artical)">- Previous</div>
         <div class="link">
           <a *ngIf="artical.pre" [routerLink]="['/blog', artical.pre.id]"
             routerLinkActive="router-link-active">{{artical.pre.title}}</a>
         </div>
       </div>
-      <div class="next" style="text-align: right;">
+      <div class="next" style="text-align: right;" *ngIf="artical.next">
         <div>- Next</div>
         <div class="link">
           <a *ngIf="artical.next" [routerLink]="['/blog', artical.next.id]"
@@ -30,6 +30,9 @@
         </div>
       </div>
     </div>
+  </div>
+  <div class="loading-icon" *ngIf="loading">
+    <mat-spinner></mat-spinner>
   </div>
 
 </div>
