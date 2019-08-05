@@ -9,6 +9,7 @@ import { CustomMaterialModule } from '../modules/customMarterialModule.module';
 import { BlogListComponent } from '../components/blog-list/blog-list.component';
 import { AboutMeComponent } from '../components/about-me/about-me.component';
 import { CategoryComponent } from '../components/category/category.component';
+import { CategoryBlogComponent } from './category-blog/category-blog.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { CategoryComponent } from '../components/category/category.component';
     BlogComponent,
     BlogListComponent,
     AboutMeComponent,
-    CategoryComponent
+    CategoryComponent,
+    CategoryBlogComponent
   ],
   imports: [
     CommonModule,

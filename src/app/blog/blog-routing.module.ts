@@ -1,3 +1,4 @@
+import { CategoryBlogComponent } from './category-blog/category-blog.component';
 import { BlogDetailComponent } from './blog-detail/blog-detail.component';
 import { HomeComponent } from '../home/home.component';
 import { BlogComponent } from './blog.component';
@@ -26,6 +27,10 @@ const blogRoutes: Routes = [
     path: 'blog/:id',
     component: BlogDetailComponent,
     data: { animation: 'hero' }
+  },
+  {
+    path: 'category',
+    component: CategoryBlogComponent,
   }
 ];
 
