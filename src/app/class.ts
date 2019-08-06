@@ -16,7 +16,7 @@ export class Artical {
     public createDate: string,
     public content: string,
     public category: string[],
-    public id: number,
+    public id: string,
     public pre: object,
     public next: object
   ) {}
@@ -28,4 +28,8 @@ export class Comment {
     public time: string,
     public content: string
   ) {}
+}
+
+export class Category {
+  constructor(public name: string, public value: string) {}
 }

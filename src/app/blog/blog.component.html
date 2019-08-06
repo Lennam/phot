@@ -10,10 +10,10 @@
   </header>
   <div class="body">
     <section class="list">
-      <app-blog-list *ngFor="let artical of articals" [artical]="artical">
-      </app-blog-list>
+      <router-outlet></router-outlet>
     </section>
     <section class="side-bar">
+      <app-category-list></app-category-list>
       <app-about-me></app-about-me>
     </section>
   </div>

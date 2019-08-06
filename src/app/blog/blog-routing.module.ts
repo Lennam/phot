@@ -1,3 +1,4 @@
+import { BlogListComponent } from './blog-list/blog-list.component';
 import { CategoryBlogComponent } from './category-blog/category-blog.component';
 import { BlogDetailComponent } from './blog-detail/blog-detail.component';
 import { HomeComponent } from '../home/home.component';
@@ -18,7 +19,9 @@ const blogRoutes: Routes = [
         children: [
           // { path: 'home', component: HomeComponent },
           // { path: ':id', component: BlogDetailComponent },
-          { path: '', pathMatch: 'full', redirectTo: 'home' }
+          { path: 'list', component: BlogListComponent },
+          { path: 'category/:category', component: CategoryBlogComponent },
+          { path: '', pathMatch: 'full', redirectTo: 'list' }
         ]
       }
     ]
@@ -27,10 +30,6 @@ const blogRoutes: Routes = [
     path: 'blog/:id',
     component: BlogDetailComponent,
     data: { animation: 'hero' }
-  },
-  {
-    path: 'category',
-    component: CategoryBlogComponent,
   }
 ];
 

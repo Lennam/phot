@@ -1,0 +1,4 @@
+<div class="artical-list" *ngIf="articals$ | async as articals">
+  <app-blog-item *ngFor="let artical of articals.list" [artical]="artical">
+  </app-blog-item>
+</div>

@@ -1,0 +1,7 @@
+<div class="category-list" *ngIf="categoryList$ | async as categoryList">
+  <div class="category-list__header">文章分类</div>
+  <mat-chip-list>
+    <mat-chip style="cursor: pointer;" *ngFor="let category of categoryList"
+      (click)="goToCategoryArtical(category.value)">{{category.name}}</mat-chip>
+  </mat-chip-list>
+</div>

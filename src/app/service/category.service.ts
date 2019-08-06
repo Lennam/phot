@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Apollo } from 'apollo-angular';
 import gql from 'graphql-tag';
+import { map } from 'rxjs/operators';
 
 interface CreateCategoryBody {
   name: string;
@@ -37,17 +38,19 @@ export class CategoryService {
   }
 
   category(): Observable<any> {
-    return this.apollo.watchQuery({
-      query: gql`
-        {
-          category {
-            name
-            value
+    return this.apollo
+      .watchQuery({
+        query: gql`
+          {
+            category {
+              name
+              value
+            }
           }
-        }
-      `,
-      fetchPolicy: 'network-only'
-    }).valueChanges;
+        `,
+        fetchPolicy: 'network-only'
+      })
+      .valueChanges.pipe(map(item => item.data));
   }
 
   deleteCategory(name: string): Observable<any> {

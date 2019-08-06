@@ -64,8 +64,9 @@ export class ArticalService {
   }
 
   getArticals(pageIndex: number): Observable<any> {
-    return this.apollo.watchQuery({
-      query: gql`
+    return this.apollo
+      .watchQuery({
+        query: gql`
         query Articals{
           articals(pageIndex: ${pageIndex}) {
             # success
@@ -79,8 +80,9 @@ export class ArticalService {
           }
         }
       `,
-      fetchPolicy: 'network-only'
-    }).valueChanges;
+        fetchPolicy: 'network-only'
+      })
+      .valueChanges.pipe(map(item => item.data));
   }
 
   deleteArtical(id): Observable<any> {
