@@ -67,7 +67,7 @@ export class ManageCategoryComponent implements OnInit {
 
   getCategory() {
     this.categoryService.category().subscribe(result => {
-      this.dataSource = result.data.category;
+      this.dataSource = result.category;
       this.table.renderRows();
     });
   }

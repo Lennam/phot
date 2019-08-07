@@ -9,8 +9,8 @@
     </mat-form-field>
   </header>
   <div class="body">
-    <section class="list">
-      <router-outlet></router-outlet>
+    <section class="list" [@routeAnimation]="getAnimationData(routerOutlet)">
+      <router-outlet #routerOutlet="outlet"></router-outlet>
     </section>
     <section class="side-bar">
       <app-category-list></app-category-list>

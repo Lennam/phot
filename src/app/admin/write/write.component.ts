@@ -40,7 +40,7 @@ export class WriteComponent implements OnInit {
 
   ngOnInit() {
     this.categoryService.category().subscribe(result => {
-      this.categoryList = result.data.category;
+      this.categoryList = result.category;
     });
   }
 

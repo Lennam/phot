@@ -63,12 +63,16 @@ export class ArticalService {
       .valueChanges.pipe(map(item => item.data));
   }
 
-  getArticals(pageIndex: number): Observable<any> {
+  getArticals(pageIndex: number, category?: string): Observable<any> {
+    const categoryValue = category ? category : '';
     return this.apollo
       .watchQuery({
         query: gql`
         query Articals{
-          articals(pageIndex: ${pageIndex}) {
+          articals(
+            pageIndex: ${pageIndex},
+            category: "${categoryValue}"
+          ) {
             # success
             pageIndex
             list {

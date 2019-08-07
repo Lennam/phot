@@ -29,6 +29,6 @@ export class CategoryListComponent implements OnInit {
   }
 
   goToCategoryArtical(category) {
-    this.route.navigate(['blog/category', category]);
+    this.route.navigate(['home/category', category]);
   }
 }

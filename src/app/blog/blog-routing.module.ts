@@ -8,10 +8,10 @@ import { Routes, RouterModule } from '@angular/router';
 
 const blogRoutes: Routes = [
   {
-    path: 'blog',
+    path: 'home',
     component: BlogComponent,
     canActivate: [],
-    data: { animation: 'heroes' },
+    data: { animation: 'home' },
     children: [
       {
         path: '',
@@ -19,8 +19,16 @@ const blogRoutes: Routes = [
         children: [
           // { path: 'home', component: HomeComponent },
           // { path: ':id', component: BlogDetailComponent },
-          { path: 'list', component: BlogListComponent },
-          { path: 'category/:category', component: CategoryBlogComponent },
+          {
+            path: 'list',
+            component: BlogListComponent,
+            data: { animation: 'all' }
+          },
+          {
+            path: 'category/:category',
+            component: CategoryBlogComponent,
+            data: { animation: 'category' }
+          },
           { path: '', pathMatch: 'full', redirectTo: 'list' }
         ]
       }
@@ -29,8 +37,9 @@ const blogRoutes: Routes = [
   {
     path: 'blog/:id',
     component: BlogDetailComponent,
-    data: { animation: 'hero' }
-  }
+    data: { animation: 'detail' }
+  },
+  { path: '', pathMatch: 'full', redirectTo: 'home' }
 ];
 
 @NgModule({

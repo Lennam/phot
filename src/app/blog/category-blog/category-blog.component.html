@@ -1,4 +1,7 @@
 <div class="category-blog">
-  <div class="category-blog-header">sdfnds</div>
-
+  <div class="category-blog-header">
+    <a [routerLink]="['/home']" routerLinkActive="router-link-active">所有文章</a>&nbsp;>>&nbsp;{{categoryName}}</div>
+  <div class="category-blog-list" *ngIf="articals$ | async as articals">
+    <app-blog-item *ngFor="let artical of articals.list" [artical]="artical"></app-blog-item>
+  </div>
 </div>
