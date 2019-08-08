@@ -22,3 +22,20 @@ a {
 a:hover {
   color: #808080;
 }
+
+.success-snackbar {
+  color: green;
+}
+
+.warning-snackbar {
+  color: orange;
+}
+
+.error-snackbar {
+  background: #FFFFFF !important;
+  color: rgb(250, 44, 44);
+
+  button {
+    color: black;
+  }
+}

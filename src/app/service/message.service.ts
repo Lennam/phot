@@ -11,9 +11,11 @@ export class MessageService {
 
   showSnackbar(type: string, message: string): MatSnackBarRef<SimpleSnackBar> {
     return this.snackBar.open(message, '知道了！', {
-      duration: 3000,
+      duration: 30000,
       verticalPosition: 'top',
       panelClass: `${type}-snackbar`
     });
   }
+
+  // show
 }

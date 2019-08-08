@@ -6,6 +6,7 @@ import gql from 'graphql-tag';
 import { map } from 'rxjs/operators';
 
 interface CreateArticalBody {
+  id: string;
   title: string;
   content: string;
   createDate: string;
@@ -37,6 +38,28 @@ export class ArticalService {
     });
   }
 
+  updateArtical(data: CreateArticalBody): Observable<any> {
+    return this.apollo.mutate({
+      variables: { content: data.content },
+      mutation: gql`
+        mutation UpdateArtical($content: String){
+          updateArtical(
+            id: "${data.id}",
+            title: "${data.title}",
+            content: $content,
+            createDate: "${data.createDate}",
+            category: "${data.category}",
+          ) {
+            artical {
+              title
+              id
+            }
+          }
+        }
+      `
+    });
+  }
+
   getArtical(id: string): Observable<any> {
     return this.apollo
       .watchQuery({
@@ -44,6 +67,7 @@ export class ArticalService {
         query Artical{
           artical(id: "${id}") {
             # success
+            id
             title
             content
             createDate

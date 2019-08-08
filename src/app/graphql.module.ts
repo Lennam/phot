@@ -38,8 +38,15 @@ export function createApollo(
   });
 
   const errorLink = onError(({ graphQLErrors, networkError, response }) => {
+    if (graphQLErrors) {
+      messageService.showSnackbar(
+        'error',
+        `graphQL ${graphQLErrors[0].path[0]} error: ${
+          response.errors[0].message
+        }`
+      );
+    }
     if (response && response.errors) {
-      messageService.showSnackbar('error', response.errors[0].message);
       if (response.errors[0].message === '您没有权限，请登录后再试！') {
         router.navigate(['/login']);
       }

@@ -1,3 +1,4 @@
+import { Router } from '@angular/router';
 import { MessageService } from './../../service/message.service';
 import { ArticalService } from './../../service/artical.service';
 import { SelectionModel } from '@angular/cdk/collections';
@@ -44,7 +45,8 @@ export class ManageArticleComponent implements OnInit {
   constructor(
     private articalService: ArticalService,
     public dialog: MatDialog,
-    public messageService: MessageService
+    public messageService: MessageService,
+    private router: Router
   ) {}
 
   ngOnInit() {
@@ -86,6 +88,10 @@ export class ManageArticleComponent implements OnInit {
     return `${this.selection.isSelected(row) ? 'deselect' : 'select'} row ${
       row.title
     }`;
+  }
+
+  onEditClick(row: Artical) {
+    this.router.navigate(['/admin/write', { id: row.id }]);
   }
 
   onDeleteClick(row: Artical) {
