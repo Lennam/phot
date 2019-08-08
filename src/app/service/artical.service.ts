@@ -6,7 +6,7 @@ import gql from 'graphql-tag';
 import { map } from 'rxjs/operators';
 
 interface CreateArticalBody {
-  id: string;
+  id?: string;
   title: string;
   content: string;
   createDate: string;
