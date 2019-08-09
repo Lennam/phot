@@ -24,18 +24,28 @@ a:hover {
 }
 
 .success-snackbar {
-  color: green;
+  background: #FFFFFF !important;
+  color: #1A2669;
+
+  button {
+    color: #3f51b5;
+  }
 }
 
 .warning-snackbar {
-  color: orange;
+  background: #FFFFFF !important;
+  color: #C17257;
+
+  button {
+    color: #3f51b5;
+  }
 }
 
 .error-snackbar {
   background: #FFFFFF !important;
-  color: rgb(250, 44, 44);
+  color: #FF2240;
 
   button {
-    color: black;
+    color: #3f51b5;
   }
 }

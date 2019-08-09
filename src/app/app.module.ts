@@ -17,9 +17,10 @@ import { UserService } from './service/user.service';
 import { MarkdownModule } from 'ngx-markdown';
 import { BlogModule } from './blog/blog.module';
 import { LoginComponent } from './login/login.component';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 
 @NgModule({
-  declarations: [AppComponent, LoginComponent],
+  declarations: [AppComponent, LoginComponent, PageNotFoundComponent],
   imports: [
     // AdminModule,
     BlogModule,
