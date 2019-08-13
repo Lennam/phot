@@ -43,7 +43,7 @@ import {
     MatSelectModule,
     MatProgressSpinnerModule,
     MatCardModule,
-    MatChipsModule
+    MatChipsModule,
   ],
   exports: [
     MatInputModule,

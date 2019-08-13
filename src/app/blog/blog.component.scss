@@ -18,7 +18,7 @@
     border-bottom: 2px solid #404040;
 
     .icon {
-      color: rgba(0, 0, 0, .54);
+      // color: rgba(0, 0, 0, .54);
       font-weight: 700;
       cursor: pointer;
       position: relative;
@@ -31,16 +31,6 @@
       //   animation: flyaround;
 
       // }
-    }
-
-    .icon__dot {
-      position: absolute;
-      height: 2px;
-      // width: 1px;
-      left: 34px;
-      top: 2px;
-      border: 1px solid rgba(0, 0, 0, .54);
-      transition: all linear;
     }
 
   }

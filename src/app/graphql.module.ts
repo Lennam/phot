@@ -21,7 +21,7 @@ export function createApollo(
   messageService: MessageService,
   router: Router
 ) {
-  const http = httpLink.create({ uri });
+  const http = httpLink.create({ uri, includeExtensions: true });
 
   const authMiddleware = new ApolloLink((operation, forward) => {
     // add the authorization to the headers

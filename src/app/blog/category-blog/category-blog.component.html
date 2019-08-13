@@ -1,6 +1,7 @@
 <div class="category-blog">
-  <div class="category-blog-header">
-    <a [routerLink]="['/home']" routerLinkActive="router-link-active">所有文章</a>&nbsp;>>&nbsp;{{categoryName}}</div>
+  <mat-card class="category-blog-header">
+    <a [routerLink]="['/home']" routerLinkActive="router-link-active">所有文章</a>&nbsp;>>&nbsp;{{categoryName}}
+  </mat-card>
   <div class="category-blog-list" *ngIf="articals$ | async as articals">
     <app-blog-item *ngFor="let artical of articals.list" [artical]="artical"></app-blog-item>
   </div>
