@@ -1,6 +1,10 @@
 language: node_js
 node_js:
   - 10.16.0
+addons:
+  ssh_known_hosts:
+    - nams.site
+    - 13.112.54.35
 cache:
   directories:
     - node_modules
