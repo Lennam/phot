@@ -8,10 +8,10 @@ import { Routes, RouterModule } from '@angular/router';
 
 const blogRoutes: Routes = [
   {
-    path: 'home',
+    path: 'blog',
     component: BlogComponent,
     canActivate: [],
-    data: { animation: 'home' },
+    data: { animation: 'blog' },
     children: [
       {
         path: '',

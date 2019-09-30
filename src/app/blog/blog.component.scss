@@ -3,39 +3,19 @@
   flex-direction: column;
   align-items: center;
 
-
-  .header {
-    height: 10vh;
-    // line-height: 10vh;
+  header {
     width: 63vw;
-    // border: 1px solid black;
-    // margin-left: 18.5vw;
     min-width: 320px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0 20px;
-    border-bottom: 2px solid #404040;
-
-    .icon {
-      // color: rgba(0, 0, 0, .54);
-      font-weight: 700;
-      cursor: pointer;
-      position: relative;
-    }
-
-    .icon:hover {
-      color: rgba(0, 0, 0, .74);
-
-      // &__dot {
-      //   animation: flyaround;
-
-      // }
-    }
+    padding: 1rem;
+    font-size: 2rem;
+    border-bottom: 2px solid rgb(196, 196, 196);
+    border-image: linear-gradient(to right, rgb(255, 0, 0), rgb(255, 251, 0), rgb(51, 255, 0), rgb(0, 255, 242), rgb(38, 0, 255));
+    border-image-slice: 10;
 
   }
 
   .body {
+    padding-top: 2vw;
     width: 63vw;
     display: flex;
     justify-content: space-around;

@@ -1,13 +1,14 @@
 <div class="content">
-  <mat-toolbar color="primary">
+  <!-- <mat-toolbar>
     <mat-toolbar-row>
       <span class="icon">Nam's</span>
-      <!-- <mat-form-field class="search-bar">
-        <input type="text" matInput placeholder="Search...">
-        <mat-icon matSuffix style="color: rgba(0,0,0,.54)">search</mat-icon>
-      </mat-form-field> -->
     </mat-toolbar-row>
-  </mat-toolbar>
+  </mat-toolbar> -->
+  <header>
+    <a [routerLink]="['/home']" routerLinkActive="router-link-active">Nam's</a>
+  </header>
+
+
   <div class="body">
     <section class="list" [@routeAnimation]="getAnimationData(routerOutlet)">
       <router-outlet #routerOutlet="outlet"></router-outlet>
