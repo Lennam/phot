@@ -4,7 +4,7 @@ node_js:
 addons:
   ssh_known_hosts:
     - nams.site
-    - 13.112.54.35
+    - 54.65.82.97
 cache:
   directories:
     - node_modules
@@ -17,5 +17,5 @@ install:
 script: true
 after_success:
   - chmod 600 ~/.ssh/id_rsa
-  - scp -r -o StrictHostKeyChecking=no dist/ ubuntu@13.112.54.35:/usr/app/phot
-  - ssh ubuntu@13.112.54.35 -o StrictHostKeyChecking=no 'pm2 restart web'
+  - scp -r -o StrictHostKeyChecking=no dist/ ubuntu@54.65.82.97:/usr/app/phot
+  - ssh ubuntu@54.65.82.97 -o StrictHostKeyChecking=no 'pm2 restart web'
